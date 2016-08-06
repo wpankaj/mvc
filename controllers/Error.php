@@ -8,7 +8,9 @@
     function __construct()
     {
       parent::__construct();
-      echo "from errorcontroller<br>";
+      //echo "from errorcontroller<br>";
+      $this->view->msg = "this is a message";
+      $this->view->render("error/index");
     }
   }
 
