@@ -1,0 +1,29 @@
+# -----------------
+# URL Rewriting Part
+# -----------------
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$   index.php?url=$1
+#[QSA, L] this statement not working along with above Rule
+
+#RewriteRule    ^test/?$    test.php    working
+
+
+# -----------------
+# PHP Error Handling:
+# -----------------
+
+# Below lines does error handlineg perfectly, I could enabled the same
+# in php.ini (/Applications/MAMP/bin/php/php5.6.10/conf/php.ini)
+# but chose this way
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag  log_errors on
+php_value error_log  /Applications/MAMP/htdocs/my_apps/mvc/logs/PHP_errors.log
