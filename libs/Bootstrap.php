@@ -8,14 +8,13 @@ class Bootstrap
   function __construct()
   {
     # code...
-    $url = explode("/", rtrim($_GET["url"], "/"));
+    $url = (isset($_GET["url"])) ? explode("/", rtrim($_GET["url"], "/")) : Array("index");
     $controller_path = "controllers/".$url[0].".php";
 
     if(file_exists($controller_path))
     {
       require $controller_path;
-      require "./libs/Controller.php";
-      
+
       $controller = new $url[0]();  //1st argument will be controller/class name
 
       if(isset($url[1]))

@@ -7,7 +7,8 @@
 
     function __construct()
     {
-      echo "I am in controller/error<br>";
+      parent::__construct();
+      echo "from errorcontroller<br>";
     }
   }
 
